@@ -1,6 +1,8 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
 package com.servlet;
-
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,39 +10,43 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-
 import java.sql.*;
-public class HelloServlet extends HttpServlet {
-    @Override
-      public void doGet(HttpServletRequest request, HttpServletResponse response)throws IOException,ServletException{
-          response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-           String name  = request.getParameter("name");
-        String password  = request.getParameter("password");
-        try{
+
+/**
+ *
+ * @author DEBASHIS
+ */
+public class login extends HttpServlet {
+
+ 
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            String na = request.getParameter("name");
+            String pass = request.getParameter("password");
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","dipu");
-            PreparedStatement psmt = con.prepareStatement("Select * from link where ename=? and password=?");
-             psmt.setString(1,name);
-           psmt.setString(2, password);
+            PreparedStatement psmt = con.prepareStatement("Select ename from  link WHERE ename=? and password=? ");
+            psmt.setString(1, na);
+            psmt.setString(2,pass);
             ResultSet rs = psmt.executeQuery();
+            
             if(rs.next()){
-            out.println("<h1style='color:green;text-align:center'>Login Sucessful</h1>");
+                out.println("<h1 style=text-align:center;color:green;margin-top:254px;>Login Sucessful</h1>");
             }
             else{
-                out.println("<h1style='color:red;text-align:center'>Username or Password Mismatch</h1>");
+                out.println("<h1 style=text-align:center;color:green;margin-top:254px;>Invalid Credential Try Again</h1>");
             }
+            /* TODO output your page here. You may use following sample code. */
+            
         }
-        catch(ClassNotFoundException | SQLException e){
+        catch(Exception e){
+            
             System.out.println(e);
-        }
-          
-    
-    
         
+        }
     }
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
