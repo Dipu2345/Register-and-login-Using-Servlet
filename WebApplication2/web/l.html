@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Register page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            h1{
+                text-align: center;
+/*                drop-shadow:  0px 5px 15px rgba(3, 2, 1, 0.35);*/
+                border-radius: 10px;
+/*                filter: drop-shadow(4px 3px 12px #4444dd);*/
+                
+               
+                  
+            }
+            .form{
+              
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                    width: 100%;
+                    height: 300px;
+                    margin: 100px 10px;
+                    
+            }
+            form{
+                background-color: whitesmoke;
+                  padding: 7px 50px;
+                border-radius: 10px;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            }
+            .form-inside{
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+               
+          
+            }
+            input:hover{
+                border: 2px solid black;
+                box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+            }
+            label{
+                padding: 4px 0;
+                color: black;
+                font-weight: bolder;
+                font-family: sans-serif;
+               margin-right: auto;
+                
+                    
+            }
+            input:focus{
+                border: 2px solid greenyellow;
+                transition: 0.3s;
+            }
+            input{
+                padding: 2px;
+            }
+            .bt1{
+                background-color: blue;
+                border: 2px solid blue;
+                border-radius: 10px;
+                padding: 7px;
+                margin: 0px 5px;
+                cursor: pointer;
+                color: white;
+               
+            }
+            .bt2{
+                color: white;
+                background-color: blue;
+                border: 2px solid blue;
+                border-radius: 10px;
+                padding: 7px;
+                margin: 0px 5px;
+                cursor: pointer;
+                
+            }
+            .bt1:hover{
+                box-shadow:  0px 5px 15px rgba(3, 2, 1, 0.35);
+                background-color: blue;
+                color: black;
+                transition: 0.3s;
+            }
+            .bt2:hover{
+                transition: 0.3s;
+                box-shadow:  0px 5px 15px rgba(3, 2, 1, 0.35);
+                background-color: blue;
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+       
+    <div class="form">
+        <form action ="HelloServlet">
+            <h1>Login</h1>
+            <div class="form-inside">
+            <label>Name</label>
+            <input type = "text" name ="name" placeholder = "Enter name" required>
+            </div>
+            <div class="form-inside">
+            <label>password</label>
+            <input type = "password" name ="password" placeholder = "Enter password" required>
+            </div>
+            <div>
+            <button class="bt1" type="submit">Login</button>
+            <button  class="bt2" type ="reset">Reset</button>
+            <p>Don't have account please  <a href="index.html">register</a> </p>
+            </div>
+        </form>
+    </div>
+       
+    </body>
+    
+</html>
